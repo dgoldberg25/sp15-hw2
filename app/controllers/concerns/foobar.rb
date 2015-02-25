@@ -1,19 +1,12 @@
 class Foobar
-  def baz(array)
-		return 4
-		# array = Set.new(array).to_a()
-		# array.each do |x|
-		# 	x.to_i
-		# 	x += 2
-		#     x.delete_if &:odd?
-		#     x.delete_if {x > 10}
-		# return array.sum
+  def self.baz(array)
+		a = array.map { |x| x.to_i }
+        a.each { |i| i+=2 }
+        a.delete_if {|x| x.odd?}
+        a.uniq
+        a.delete_if {|x| x > 10 }
+        return a.sum
   end
-
-
-
-		#takes str[] of integers and converts each elem 
-		#into an integer, adds 2, deletes odd numbers,
-		#removes duplicates, removes numbers greater than 10
-		#and returns the sum of the resulting array
+#["1", "2", "3", "3", "4", "5", "10", "11", "100"]
+#[4,6]
 end
